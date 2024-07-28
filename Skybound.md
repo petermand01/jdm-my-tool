@@ -5,7 +5,7 @@ These mainly exist for troubleshooting. You should not normally need them.
 ### Check that the tool can detect the device and the data card:
 
 ```
-$ jdmtool detect
+$ jdmtool skybound detect
 Found device: Bus 001 Device 049: ID 0e39:1250
 Firmware version: 20071203
 Card inserted:
@@ -22,7 +22,7 @@ I don't have enough information to decode it.)
 JDM seems to only write it to 16MB cards. Not clear if it's actually used for anything.
 
 ```
-$ jdmtool read-metadata
+$ jdmtool skybound read-metadata
 Found device: Bus 001 Device 045: ID 0e39:1250
 Detected data card: 16MB WAAS
 Database metadata: {2303~12345678}
@@ -33,7 +33,7 @@ Database metadata: {2303~12345678}
 JDM seems to only write it to 16MB cards. Not clear if it's actually used for anything.
 
 ```
-$ jdmtool write-metadata '{2303~12345678}'
+$ jdmtool skybound write-metadata '{2303~12345678}'
 Found device: Bus 001 Device 045: ID 0e39:1250
 Detected data card: 16MB WAAS
 Done
@@ -42,7 +42,7 @@ Done
 ### Read the current database from the data card:
 
 ```
-$ jdmtool read-database db.bin
+$ jdmtool skybound read-database db.bin
 Found device: Bus 001 Device 044: ID 0e39:1250
 Detected data card: 16MB WAAS
 Reading the database: 100%|████████████████████████████████████████| 8.59M/8.59M [01:33<00:00, 91.6KB/s]
@@ -66,7 +66,7 @@ The created file may not match the original downloaded file exactly. There is no
 ### Write a new database to the data card:
 
 ```
-$ jdmtool write-database dgrw72_2303_eceb0273.bin
+$ jdmtool skybound write-database dgrw72_2303_eceb0273.bin
 Found device: Bus 001 Device 045: ID 0e39:1250
 Detected data card: 16MB WAAS
 Transfer dgrw72_2303_eceb0273.bin to the data card? (y/n) y

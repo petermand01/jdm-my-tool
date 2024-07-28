@@ -1024,19 +1024,27 @@ def main():
     )
     clean_p.set_defaults(func=cmd_clean)
 
-    detect_p = subparsers.add_parser(
+    skybound_p = subparsers.add_parser(
+        "skybound",
+        help="Advanced commands for Skybound data cards",
+    )
+
+    skybound_subparsers = skybound_p.add_subparsers(metavar='<command>')
+    skybound_subparsers.required = True
+
+    detect_p = skybound_subparsers.add_parser(
         "detect",
         help="Detect a card programmer device",
     )
     detect_p.set_defaults(func=cmd_detect)
 
-    read_metadata_p = subparsers.add_parser(
+    read_metadata_p = skybound_subparsers.add_parser(
         "read-metadata",
         help="Read the database metadata from a data card",
     )
     read_metadata_p.set_defaults(func=cmd_read_metadata)
 
-    write_metadata_p = subparsers.add_parser(
+    write_metadata_p = skybound_subparsers.add_parser(
         "write-metadata",
         help="Write the database metadata to a data card",
     )
@@ -1046,7 +1054,7 @@ def main():
     )
     write_metadata_p.set_defaults(func=cmd_write_metadata)
 
-    read_database_p = subparsers.add_parser(
+    read_database_p = skybound_subparsers.add_parser(
         "read-database",
         help="Read the database from a data card and write to a file",
     )
@@ -1056,7 +1064,7 @@ def main():
     )
     read_database_p.set_defaults(func=cmd_read_database)
 
-    write_database_p = subparsers.add_parser(
+    write_database_p = skybound_subparsers.add_parser(
         "write-database",
         help="Write the database to a data card",
     )
